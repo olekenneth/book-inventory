@@ -15,7 +15,7 @@ export default (stockRepo) => {
 
             return stockRepo.stockUp(isbn, count)
                 .then(() => {
-                    return res.json({ count: count });
+                    return res.status(201).json({ count: count });
                 })
                 .catch(next);
         },

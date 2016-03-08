@@ -1,17 +1,18 @@
+import { MongoClient } from 'mongodb';
 let url = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/test';
-let MongoClient = require('mongodb').MongoClient;
 let connection = MongoClient.connect(url);
+let collectionName = 'books';
 
 export default () => {
     return {
         findAll: function () {
             return connection.then(function (db) {
-                return db.collection('books').find({}).toArray();
+                return db.collection(collectionName).find({}).toArray();
             });
         },
         stockUp: function (isbn, count) {
             return connection.then(function (db) {
-                return db.collection('books').updateOne({isbn: isbn}, {
+                return db.collection(collectionName).updateOne({isbn: isbn}, {
                     isbn: isbn,
                     count: count
 
@@ -20,7 +21,7 @@ export default () => {
         },
         getCount: function (isbn) {
             return connection.then(function (db) {
-                return db.collection('books').find({"isbn": isbn}).limit(1).next();
+                return db.collection(collectionName).find({"isbn": isbn}).limit(1).next();
 
             }).then(function (result) {
                 if (result) {

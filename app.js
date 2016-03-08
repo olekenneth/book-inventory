@@ -14,7 +14,7 @@ export default (stockRepo) => {
         next();
     };
 
-    app.use(logger);
+    // app.use(logger);
 
     let route = routes(stockRepo);
 
@@ -29,10 +29,8 @@ export default (stockRepo) => {
         let error = new Error('No route');
         error.status = 404;
         next(error);
-    });
-
-    app.use((err, req, res) => {
-        // console.error(err.stack);
+    }, (err, req, res) => {
+        console.error(err.stack);
         res.status(err.status || 500)
             .json(err.message);
         // .send(err.stack || 'Something broke!')

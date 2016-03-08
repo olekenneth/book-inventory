@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node start.js",
     "test": "mocha --compilers js:babel-register",
+    "nodemon": "nodemon start.js",
     "lint": "eslint ."
   },
   "author": "Ole-Kenneth Bratholt <ok@vg.no>",
@@ -21,6 +22,7 @@
   "devDependencies": {
     "babel-eslint": "^6.0.0-beta.3",
     "eslint": "^2.3.0",
+    "heroin-js": "^1.5.0",
     "mocha": "^2.4.5",
     "supertest": "^1.2.0"
   },
