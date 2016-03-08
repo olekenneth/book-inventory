@@ -6,7 +6,7 @@
     "prestart": "npm test",
     "start": "node start.js",
     "test": "mocha --compilers js:babel-register",
-    "lint": "eslint **/*.js"
+    "lint": "eslint ."
   },
   "author": "Ole-Kenneth Bratholt <ok@vg.no>",
   "license": "ISC",
