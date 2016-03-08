@@ -18,6 +18,9 @@ export default (stockRepo) => {
 
     let route = routes(stockRepo);
 
+    app.get('/', function(req, res) {
+        res.send('HELLO');
+    });
     app.post('/stock', route.stockUp);
     app.get('/stock', route.getAll);
     app.get('/stock/:isbn', route.getCount);
