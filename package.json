@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node start.js",
-    "test": "mocha --compilers js:babel-register",
+    "test": "mocha --compilers js:babel-core/register",
     "nodemon": "nodemon start.js",
     "lint": "eslint ."
   },
