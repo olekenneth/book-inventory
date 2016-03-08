@@ -1,0 +1,14 @@
+{
+    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "globals": {
+        "Promise": true,
+        "describe": true,
+        "it": true,
+        "module": true,
+        "require": true
+    },
+    "rules": {
+        "no-console": [2, { allow: ["warn", "error"] }]
+    }
+}
