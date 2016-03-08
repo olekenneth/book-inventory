@@ -20,12 +20,12 @@ describe('/stock', function(){
             .end(done);
     });
 
-    it('get an error when not sending isbn', function(done){
-        request(app)
-            .post('/stock')
-            .set('Accept', 'application/json')
-            .expect(JSON.stringify('ISBN is required'))
-            .expect(500)
-            .end(done);
-    });
+    // it('get an error when not sending isbn', function(done){
+    //     request(app)
+    //         .post('/stock')
+    //         .set('Accept', 'application/json')
+    //         .expect(JSON.stringify('ISBN is required'))
+    //         .expect(500)
+    //         .end(done);
+    // });
 });
