@@ -2,9 +2,11 @@ import { MongoClient } from 'mongodb';
 
 let promise = null;
 let connect = () => {
-    if (promise) return promise;
+    if (promise) {
+        return promise;
+    }
 
-    promise = MongoClient.connect('mongodb://localhost:27017/test')
+    promise = MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/test')
         .then((db) => {
             return db.collection('books');
         });
