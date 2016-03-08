@@ -1,4 +1,4 @@
-let url = 'mongodb://localhost:27017/test';
+let url = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/test';
 let MongoClient = require('mongodb').MongoClient;
 let connection = MongoClient.connect(url);
 
