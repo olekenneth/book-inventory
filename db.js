@@ -6,6 +6,7 @@ let connect = () => {
         return promise;
     }
 
+    console.log(process.env.MONGOLAB_URI);
     promise = MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/test')
         .then((db) => {
             return db.collection('books');
