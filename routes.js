@@ -26,10 +26,22 @@ export default (stockRepo) => {
                 }).catch(next);
         },
         getCount: (req, res, next) => {
-            return stockRepo.getCount('' + req.query.isbn)
-                .then((item) => {
-                    return res.json(item);
-                }).catch(next);
+            return stockRepo.getCount('' + req.params.isbn)
+                .then((count) => {
+                    if (!count) {
+                        throw new Error('No book with ISBN: ' + req.params.isbn);
+                    }
+                    return res.format({
+                        html: function(){
+                            return res.send('<p>Count: ' + count + '</p>');
+                        },
+
+                        json: function(){
+                            return res.json({ count: count });
+                        }
+                    });
+                })
+                .catch(next);
         }
     };
 };
